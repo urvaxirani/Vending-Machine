@@ -1,0 +1,5 @@
+1::Coke Zero::1.25::5
+2::Twinkies ::2.00::6
+3::Cheetos  ::1.50::8
+4::Red Bull ::3.50::4
+5::Monster  ::5.00::7
