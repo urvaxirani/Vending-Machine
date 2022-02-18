@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineDao;
+package com.sg.vendingmachine.dao;
 
-import VendingMachineDto.Coin;
-import VendingMachineDto.VendingMachineItem;
+import com.sg.vendingmachine.dto.Coin;
+import com.sg.vendingmachine.dto.VendingMachineItem;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
