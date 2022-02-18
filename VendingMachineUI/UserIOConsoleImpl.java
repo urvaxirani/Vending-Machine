@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineui;
+package com.sg.vendingmachine.ui;
 
 import java.util.Scanner;
 
@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @author urvax
  */
+
 public class UserIOConsoleImpl implements UserIO{
 
     final private Scanner console = new Scanner(System.in);
