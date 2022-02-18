@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineService;
+package com.sg.vendingmachine.service;
 
-import VendingMachineDao.VendingMachineDao;
-import VendingMachineDao.VendingMachinePersistenceException;
-import VendingMachineDto.Coin;
-import VendingMachineDto.VendingMachineItem;
+import com.sg.vendingmachine.dao.VendingMachineDao;
+import com.sg.vendingmachine.dao.VendingMachinePersistenceException;
+import com.sg.vendingmachine.dto.Coin;
+import com.sg.vendingmachine.dto.VendingMachineItem;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
