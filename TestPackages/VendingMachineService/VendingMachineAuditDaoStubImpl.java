@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineService;
+package com.sg.vendingmachine.service;
 
-import VendingMachineDao.VendingMachineAuditDao;
-import VendingMachineDao.VendingMachinePersistenceException;
+import com.sg.vendingmachine.dao.VendingMachineAuditDao;
+import com.sg.vendingmachine.dao.VendingMachinePersistenceException;
 
 /**
  *
@@ -16,7 +16,7 @@ public class VendingMachineAuditDaoStubImpl implements VendingMachineAuditDao{
 
     @Override
     public void writeAuditEntry(String entry) throws VendingMachinePersistenceException{
-        //Does nothing
+        //Do nothing
     }
 
 }   
