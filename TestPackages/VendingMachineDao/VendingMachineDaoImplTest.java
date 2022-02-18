@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineDao;
+package com.sg.vendingmachine.dao;
 
-import VendingMachineDto.Coin;
-import VendingMachineDto.VendingMachineItem;
+import com.sg.vendingmachine.dao.VendingMachineDaoImpl;
+import com.sg.vendingmachine.dao.VendingMachineDao;
+import com.sg.vendingmachine.dto.Coin;
+import com.sg.vendingmachine.dto.VendingMachineItem;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
  * @author urvax
  */
-//@Component
 public class VendingMachineDaoImplTest {
      VendingMachineDao testDao;
     public VendingMachineDaoImplTest() {
@@ -57,7 +58,7 @@ public class VendingMachineDaoImplTest {
         out.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testGetInventory() throws Exception {
         VendingMachineItem testItem1 = new VendingMachineItem();
         testItem1.setItemNumber(1);
@@ -103,7 +104,7 @@ public class VendingMachineDaoImplTest {
                 "Checking Item Quantity");
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testGetItemByIndex() throws Exception {
         VendingMachineItem testItem1 = new VendingMachineItem();
         testItem1.setItemNumber(1);
@@ -144,13 +145,13 @@ public class VendingMachineDaoImplTest {
                 "Checking Item Price");
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testdecrementInventory() throws Exception {
         VendingMachineItem testItem1 = testDao.getItemByIndex(1);
         assertEquals(testDao.decrementInventory(testItem1.getItemNumber()), 1, "Item quantity was 2 but should be 1 after decrementing");
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testCoinFunctionality() throws Exception {
         testDao.insertCoin(Coin.PENNY);
         testDao.insertCoin(Coin.DIME);
@@ -163,3 +164,4 @@ public class VendingMachineDaoImplTest {
     }
 
 }
+
