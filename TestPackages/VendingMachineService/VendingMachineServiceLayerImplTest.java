@@ -3,34 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineService;
+package com.sg.vendingmachine.service;
 
-import VendingMachineDao.VendingMachineAuditDao;
-import VendingMachineDao.VendingMachineDao;
-import VendingMachineDao.VendingMachinePersistenceException;
-import VendingMachineDto.Coin;
-import VendingMachineDto.VendingMachineItem;
+
+import com.sg.vendingmachine.service.VendingMachineNoItemInventoryException;
+import com.sg.vendingmachine.service.VendingMachineInsufficientFundsException;
+import com.sg.vendingmachine.service.VendingMachineServiceLayerImpl;
+import com.sg.vendingmachine.dao.VendingMachinePersistenceException;
+import com.sg.vendingmachine.dto.Coin;
+import com.sg.vendingmachine.dto.VendingMachineItem;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author urvax
  */
-
 public class VendingMachineServiceLayerImplTest {
 
     public VendingMachineServiceLayerImpl service;
 public VendingMachineServiceLayerImplTest() {
 
-        VendingMachineDao dao = new VendingMachineDaoStubImpl();
+         /*VendingMachineDao dao = new VendingMachineDaoStubImpl();
         VendingMachineAuditDao auditDao = new VendingMachineAuditDaoStubImpl();
 
         //Instance of service layer for testing
-        service = new VendingMachineServiceLayerImpl(dao, auditDao);
+        service = new VendingMachineServiceLayerImpl(dao, auditDao);*/
+        
+        ApplicationContext ctx = 
+        new ClassPathXmlApplicationContext("applicationContext.xml");
+    service = 
+        ctx.getBean("serviceLayer", VendingMachineServiceLayerImpl.class);
+
+        
     }
 
     /**
@@ -59,7 +69,7 @@ public VendingMachineServiceLayerImplTest() {
     /**
      * Test when purchasing with not enough funds
      */
-    @Test
+@Test
     public void testPurchaseInsufficientFunds() {
         try {
             //ARRANGE
@@ -81,7 +91,7 @@ public VendingMachineServiceLayerImplTest() {
     /**
      * Test getting an item using a known correct index
      */
-    @Test
+   @Test
     public void testGetItemCorrectIndex() {
         try {
             VendingMachineItem anItem = service.getItemByIndex(1);
@@ -111,7 +121,7 @@ public VendingMachineServiceLayerImplTest() {
     /**
      * Test getting the inventory and testing the known fields of that object
      */
-    @Test
+   @Test
     public void testGetInventory() {
         VendingMachineItem testItem1 = new VendingMachineItem();
         testItem1.setItemNumber(1);
@@ -146,7 +156,7 @@ public VendingMachineServiceLayerImplTest() {
      * that coins add up to a known correct amount,
      * and that coins are deposited correctly
      */
-    @Test
+ @Test
     public void testInsertCoin() {
         try {
             service.insertCoin(Coin.PENNY);
