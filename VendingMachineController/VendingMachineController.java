@@ -1,12 +1,12 @@
-package VendingMachineController;
+package com.sg.vendingmachine.controller;
 
-import VendingMachineDao.VendingMachinePersistenceException;
-import VendingMachineDto.Coin;
-import VendingMachineDto.VendingMachineItem;
-import VendingMachineService.VendingMachineInsufficientFundsException;
-import VendingMachineService.VendingMachineNoItemInventoryException;
-import VendingMachineService.VendingMachineServiceLayer;
-import VendingMachineui.VendingMachineView;
+import com.sg.vendingmachine.dao.VendingMachinePersistenceException;
+import com.sg.vendingmachine.dto.Coin;
+import com.sg.vendingmachine.dto.VendingMachineItem;
+import com.sg.vendingmachine.service.VendingMachineInsufficientFundsException;
+import com.sg.vendingmachine.service.VendingMachineNoItemInventoryException;
+import com.sg.vendingmachine.service.VendingMachineServiceLayer;
+import com.sg.vendingmachine.ui.VendingMachineView;
 
 
 
@@ -42,6 +42,7 @@ public class VendingMachineController {
                 switch (menuSelection) {
                     case 1: //Purchase an item
                         try {
+                         view.displayItemNumbers(service.getInventory());
                         //Choice can be between 1 to the size of the inventory
                         int choice = view.getItemChoice(service.getInventory().size());
                         purchaseItem(choice);
