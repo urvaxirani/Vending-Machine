@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VendingMachineui;
+package com.sg.vendingmachine.ui;
 
-import VendingMachineDto.VendingMachineItem;
+import com.sg.vendingmachine.dto.VendingMachineItem;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -39,13 +39,17 @@ public class VendingMachineView{
         return io.readInt("Please select from the above choices.", 1, 3);
     }
 
+    public void displayItemNumbers(List<VendingMachineItem> inventory){
+        io.print("Select the Item number from the list of items below");
+        io.print("Item# - Item name");
+        inventory.forEach(currentItem -> {
+            io.print(currentItem.getItemNumber() + "     - " + currentItem.getName());
+        });
+    }
+    
     public int getItemChoice(int numOfChoices) {
-        return io.readInt("Enter item-#\n"
-                + "1:Coke Zero\n" +
-                  "2:Twinkies\n" +
-                  "3:Cheetos\n" +
-                  "4:Red Bull\n" +
-                  "5:Monster", 1, numOfChoices);
+        
+                return io.readInt("Enter item-#", 1, numOfChoices);
     }
 
     public void displayDepositPurchasedItem(VendingMachineItem depositedItem) {
